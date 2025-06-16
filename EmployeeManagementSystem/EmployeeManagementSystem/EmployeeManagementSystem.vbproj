@@ -1,0 +1,286 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6F28BD84-D2DA-403F-8699-144849897156}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>EmployeeManagementSystem.My.MyApplication</StartupObject>
+    <RootNamespace>EmployeeManagementSystem</RootNamespace>
+    <AssemblyName>EmployeeManagementSystem</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>EmployeeManagementSystem.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>EmployeeManagementSystem.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data">
+      <HintPath>..\..\..\..\..\..\Downloads\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="MySql" />
+    <Import Include="MySql.Data" />
+    <Import Include="MySql.Data.Common" />
+    <Import Include="MySql.Data.MySqlClient" />
+    <Import Include="MySql.Data.MySqlClient.Authentication" />
+    <Import Include="MySql.Data.MySqlClient.Interceptors" />
+    <Import Include="MySql.Data.MySqlClient.Memcached" />
+    <Import Include="MySql.Data.MySqlClient.Replication" />
+    <Import Include="MySql.Data.MySqlClient.X" />
+    <Import Include="MySql.Data.MySqlClient.X.XDevAPI" />
+    <Import Include="MySql.Data.MySqlClient.X.XDevAPI.Common" />
+    <Import Include="MySql.Data.Types" />
+    <Import Include="MySqlX" />
+    <Import Include="MySqlX.Protocol" />
+    <Import Include="MySqlX.Serialization" />
+    <Import Include="MySqlX.XDevAPI" />
+    <Import Include="MySqlX.XDevAPI.Common" />
+    <Import Include="MySqlX.XDevAPI.CRUD" />
+    <Import Include="MySqlX.XDevAPI.Relational" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Admin\frmDashboard-a.Designer.vb">
+      <DependentUpon>frmDashboard-a.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\frmDashboard-a.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\Sections-a\frmDepartment.Designer.vb">
+      <DependentUpon>frmDepartment.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Sections-a\frmDepartment.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\Sections-a\frmPosition.Designer.vb">
+      <DependentUpon>frmPosition.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Sections-a\frmPosition.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employee\frmDashboard-e.Designer.vb">
+      <DependentUpon>frmDashboard-e.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Employee\frmDashboard-e.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employee\Section-e\frmAttendance-e.Designer.vb">
+      <DependentUpon>frmAttendance-e.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Employee\Section-e\frmAttendance-e.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employee\Section-e\frmHome-e.Designer.vb">
+      <DependentUpon>frmHome-e.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Employee\Section-e\frmHome-e.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employee\Section-e\frmLeave-e.Designer.vb">
+      <DependentUpon>frmLeave-e.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Employee\Section-e\frmLeave-e.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employee\Section-e\frmProfile.Designer.vb">
+      <DependentUpon>frmProfile.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Employee\Section-e\frmProfile.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GlobalModule.vb" />
+    <Compile Include="Admin\Sections-a\frmAttendance-a.Designer.vb">
+      <DependentUpon>frmAttendance-a.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Sections-a\frmAttendance-a.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\Sections-a\frmEmployee.Designer.vb">
+      <DependentUpon>frmEmployee.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Sections-a\frmEmployee.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\Sections-a\frmHome-a.Designer.vb">
+      <DependentUpon>frmHome-a.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Sections-a\frmHome-a.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\Sections-a\frmLeave-a.Designer.vb">
+      <DependentUpon>frmLeave-a.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Sections-a\frmLeave-a.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\Sections-a\frmPayroll.Designer.vb">
+      <DependentUpon>frmPayroll.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Sections-a\frmPayroll.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Conn.vb" />
+    <Compile Include="LoginForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.vb">
+      <DependentUpon>LoginForm.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Admin\frmDashboard-a.resx">
+      <DependentUpon>frmDashboard-a.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\Sections-a\frmAttendance-a.resx">
+      <DependentUpon>frmAttendance-a.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\Sections-a\frmDepartment.resx">
+      <DependentUpon>frmDepartment.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\Sections-a\frmEmployee.resx">
+      <DependentUpon>frmEmployee.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\Sections-a\frmHome-a.resx">
+      <DependentUpon>frmHome-a.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\Sections-a\frmLeave-a.resx">
+      <DependentUpon>frmLeave-a.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\Sections-a\frmPayroll.resx">
+      <DependentUpon>frmPayroll.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\Sections-a\frmPosition.resx">
+      <DependentUpon>frmPosition.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee\frmDashboard-e.resx">
+      <DependentUpon>frmDashboard-e.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee\Section-e\frmAttendance-e.resx">
+      <DependentUpon>frmAttendance-e.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee\Section-e\frmHome-e.resx">
+      <DependentUpon>frmHome-e.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee\Section-e\frmLeave-e.resx">
+      <DependentUpon>frmLeave-e.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee\Section-e\frmProfile.resx">
+      <DependentUpon>frmProfile.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\locked.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-user-icon-100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\view.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\locked1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hide.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
