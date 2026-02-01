@@ -4,7 +4,8 @@
 **EmployeeManagementSystem** is a desktop-based application built with **VB.NET** for managing employee records, attendance, department assignments, and payroll.  
 The system supports role-based access for admins and employees, providing a centralized platform for day-to-day HR operations.
 
-<img width="1403" height="765" alt="image" src="https://github.com/user-attachments/assets/f40dd0ab-d97c-441e-bed8-f47f36d09c98" />
+<img width="1405" height="770" alt="image" src="https://github.com/user-attachments/assets/13cdf984-6f63-4d7c-ac41-e82849ad4e6d" />
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/309c94f9-9318-4f23-9006-afb019269b60" />
 
 
 ## Features
