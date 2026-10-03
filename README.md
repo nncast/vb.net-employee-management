@@ -17,9 +17,7 @@
 **EmployeeManagementSystem** is a desktop-based application built with **VB.NET** for managing employee records, attendance, department assignments, and payroll.
 The system supports role-based access for admins and employees, providing a centralized platform for day-to-day HR operations.
 
-> **Current version: v0.1.0** — first tagged release. See [Releases](https://github.com/nncast/vb.net-employee-management/releases) for the project timeline.
-
-## Screenshots
+> **Current version: v0.1.0** — first tagged release. See [Releases](https://github.com/nncast/vb.net-employee-management/releases) for the release notes.
 
 <p align="center">
   <img width="400" alt="Login form." src="https://github.com/user-attachments/assets/13cdf984-6f63-4d7c-ac41-e82849ad4e6d" />
@@ -80,10 +78,6 @@ The system supports role-based access for admins and employees, providing a cent
 6. Build and run the project.
 
 Sign in with `admin` / `admin123`. Change the password from the Employee → Profile screen after the first login.
-
-## Developer
-
-Janelle Ann Castillo ([nncast](https://github.com/nncast))
 
 ---
 
