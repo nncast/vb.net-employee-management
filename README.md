@@ -71,9 +71,9 @@ The system supports role-based access for admins and employees, providing a cent
    git clone https://github.com/nncast/vb.net-employee-management.git
    ```
 2. Start MySQL using XAMPP, WAMP, or another server stack.
-3. Import `dbemployee.sql` (in the repository root) with SQLYog or another MySQL client, or from the CLI:
+3. Import `database/dbemployee.sql` with SQLYog or another MySQL client, or from the CLI:
    ```bash
-   mysql -u root -p < dbemployee.sql
+   mysql -u root -p < database/dbemployee.sql
    ```
 4. Open `EmployeeManagementSystem/EmployeeManagementSystem.sln` in Visual Studio.
 5. Make sure the project targets .NET Framework 4.8.1 or later and that `MySql.Data.dll` is referenced.
