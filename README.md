@@ -91,6 +91,11 @@ Sign in with `admin` / `admin123`, then change that password: open **Employee**,
 
 **Upgrading from v0.1.0?** Your existing database works as it is: each plain-text password is replaced by a hash the next time that user signs in.
 
+## Developers
+
+- Janelle Ann Castillo
+- Hazel Sebastian
+- Louisse Glaze Villarente
 ---
 
 *EmployeeManagementSystem · 2025 · VB.NET · Windows Forms · .NET Framework 4.8.1 · MySQL*
