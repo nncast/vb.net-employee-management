@@ -2,7 +2,7 @@
     Private ReadOnly timer As New Timer()
 
     Private Sub Dashboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Connect("localhost", "dbemployee", "3306", "root", "")
+        Connect()
         switchPanel(frmHome)
         UpdateDateTime()
 
@@ -104,7 +104,7 @@
     End Sub
 
     Public Sub LoadAdminInfo()
-    GetQuery("SELECT e.firstname, e.lastname, p.positiontitle FROM tblemployee e INNER JOIN tblposition p ON e.positionid = p.id WHERE e.id = " & loggedinadminid, "admininfo")
+        GetQuery("SELECT e.firstname, e.lastname, p.positiontitle FROM tblemployee e INNER JOIN tblposition p ON e.positionid = p.id WHERE e.id = @id", "admininfo", P("@id", loggedinadminid))
 
         If ds.Tables("admininfo").Rows.Count > 0 Then
             Dim row = ds.Tables("admininfo").Rows(0)
@@ -113,4 +113,9 @@
         End If
     End Sub
 
+    ' The login form is only hidden after signing in, so closing this window
+    ' has to end the program; otherwise it keeps running in the background.
+    Private Sub frmDashboard_a_FormClosed(sender As Object, e As FormClosedEventArgs) Handles Me.FormClosed
+        Application.Exit()
+    End Sub
 End Class

@@ -1,7 +1,7 @@
 ﻿Public Class frmHome
 
     Private Sub frmHome_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Connect("localhost", "dbemployee", "3306", "root", "")
+        Connect()
 
         fill()
     End Sub

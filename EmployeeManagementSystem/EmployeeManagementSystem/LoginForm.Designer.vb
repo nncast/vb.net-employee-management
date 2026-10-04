@@ -35,12 +35,12 @@ Partial Class LoginForm
         Me.piceyeview = New System.Windows.Forms.PictureBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.ShapeContainer3 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
+        Me.RectangleShape4 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
+        Me.RectangleShape3 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
+        Me.RectangleShape2 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.ShapeContainer1 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
         Me.RectangleShape1 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
-        Me.RectangleShape2 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
-        Me.ShapeContainer3 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
-        Me.RectangleShape3 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
-        Me.RectangleShape4 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.Panel1.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -195,6 +195,43 @@ Partial Class LoginForm
         Me.Label4.TabIndex = 5
         Me.Label4.Text = "Welcome back!"
         '
+        'ShapeContainer3
+        '
+        Me.ShapeContainer3.Location = New System.Drawing.Point(0, 0)
+        Me.ShapeContainer3.Margin = New System.Windows.Forms.Padding(0)
+        Me.ShapeContainer3.Name = "ShapeContainer3"
+        Me.ShapeContainer3.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.RectangleShape4, Me.RectangleShape3, Me.RectangleShape2})
+        Me.ShapeContainer3.Size = New System.Drawing.Size(440, 456)
+        Me.ShapeContainer3.TabIndex = 9
+        Me.ShapeContainer3.TabStop = False
+        '
+        'RectangleShape4
+        '
+        Me.RectangleShape4.CornerRadius = 20
+        Me.RectangleShape4.FillColor = System.Drawing.Color.White
+        Me.RectangleShape4.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid
+        Me.RectangleShape4.Location = New System.Drawing.Point(19, 163)
+        Me.RectangleShape4.Name = "RectangleShape4"
+        Me.RectangleShape4.Size = New System.Drawing.Size(403, 40)
+        '
+        'RectangleShape3
+        '
+        Me.RectangleShape3.CornerRadius = 20
+        Me.RectangleShape3.FillColor = System.Drawing.Color.White
+        Me.RectangleShape3.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid
+        Me.RectangleShape3.Location = New System.Drawing.Point(21, 238)
+        Me.RectangleShape3.Name = "RectangleShape3"
+        Me.RectangleShape3.Size = New System.Drawing.Size(404, 40)
+        '
+        'RectangleShape2
+        '
+        Me.RectangleShape2.CornerRadius = 22
+        Me.RectangleShape2.FillColor = System.Drawing.Color.FromArgb(CType(CType(27, Byte), Integer), CType(CType(3, Byte), Integer), CType(CType(29, Byte), Integer))
+        Me.RectangleShape2.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid
+        Me.RectangleShape2.Location = New System.Drawing.Point(28, 345)
+        Me.RectangleShape2.Name = "RectangleShape2"
+        Me.RectangleShape2.Size = New System.Drawing.Size(399, 45)
+        '
         'ShapeContainer1
         '
         Me.ShapeContainer1.Location = New System.Drawing.Point(0, 0)
@@ -214,43 +251,6 @@ Partial Class LoginForm
         Me.RectangleShape1.Name = "RectangleShape1"
         Me.RectangleShape1.Size = New System.Drawing.Size(464, 482)
         '
-        'RectangleShape2
-        '
-        Me.RectangleShape2.CornerRadius = 22
-        Me.RectangleShape2.FillColor = System.Drawing.Color.FromArgb(CType(CType(27, Byte), Integer), CType(CType(3, Byte), Integer), CType(CType(29, Byte), Integer))
-        Me.RectangleShape2.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid
-        Me.RectangleShape2.Location = New System.Drawing.Point(28, 345)
-        Me.RectangleShape2.Name = "RectangleShape2"
-        Me.RectangleShape2.Size = New System.Drawing.Size(399, 45)
-        '
-        'ShapeContainer3
-        '
-        Me.ShapeContainer3.Location = New System.Drawing.Point(0, 0)
-        Me.ShapeContainer3.Margin = New System.Windows.Forms.Padding(0)
-        Me.ShapeContainer3.Name = "ShapeContainer3"
-        Me.ShapeContainer3.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.RectangleShape4, Me.RectangleShape3, Me.RectangleShape2})
-        Me.ShapeContainer3.Size = New System.Drawing.Size(440, 456)
-        Me.ShapeContainer3.TabIndex = 9
-        Me.ShapeContainer3.TabStop = False
-        '
-        'RectangleShape3
-        '
-        Me.RectangleShape3.CornerRadius = 20
-        Me.RectangleShape3.FillColor = System.Drawing.Color.White
-        Me.RectangleShape3.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid
-        Me.RectangleShape3.Location = New System.Drawing.Point(21, 238)
-        Me.RectangleShape3.Name = "RectangleShape3"
-        Me.RectangleShape3.Size = New System.Drawing.Size(404, 40)
-        '
-        'RectangleShape4
-        '
-        Me.RectangleShape4.CornerRadius = 20
-        Me.RectangleShape4.FillColor = System.Drawing.Color.White
-        Me.RectangleShape4.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid
-        Me.RectangleShape4.Location = New System.Drawing.Point(19, 163)
-        Me.RectangleShape4.Name = "RectangleShape4"
-        Me.RectangleShape4.Size = New System.Drawing.Size(403, 40)
-        '
         'LoginForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(11.0!, 28.0!)
@@ -263,7 +263,7 @@ Partial Class LoginForm
         Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Name = "LoginForm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "LoginForm"
+        Me.Text = "Login"
         Me.Panel1.ResumeLayout(False)
         Me.Panel3.ResumeLayout(False)
         Me.Panel2.ResumeLayout(False)

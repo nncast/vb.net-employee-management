@@ -1,6 +1,6 @@
 ﻿Public Class frmHome_e
     Private Sub frmHome_e_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Connect("localhost", "dbemployee", "3306", "root", "")
+        Connect()
         LoadAttendanceStatus()
         LoadLeaveCounts()
     End Sub
@@ -17,11 +17,11 @@
         End If
 
         Dim query As String = "SELECT status FROM tblattendance " & _
-                             "WHERE employeeid = " & loggedinemployeeid & " " & _
+                             "WHERE employeeid = @id " & _
                              "AND date = CURDATE() " & _
                              "ORDER BY id DESC LIMIT 1"
 
-        GetQuery(query, "attstatus")
+        GetQuery(query, "attstatus", P("@id", loggedinemployeeid))
 
         If ds.Tables("attstatus").Rows.Count > 0 Then
             Dim status As String = ds.Tables("attstatus").Rows(0)("status").ToString()
@@ -33,11 +33,11 @@
 
     Public Sub LoadLeaveCounts()
         Dim query As String = "SELECT " & _
-                             "(SELECT COUNT(*) FROM tblleaverequests WHERE employeeid = " & loggedinemployeeid & " AND status = 'Pending') AS pending, " & _
-                             "(SELECT COUNT(*) FROM tblleaverequests WHERE employeeid = " & loggedinemployeeid & " AND status = 'Approved') AS approved, " & _
-                             "(SELECT COUNT(*) FROM tblleaverequests WHERE employeeid = " & loggedinemployeeid & " AND status = 'Rejected') AS rejected"
+                             "(SELECT COUNT(*) FROM tblleaverequests WHERE employeeid = @id AND status = 'Pending') AS pending, " & _
+                             "(SELECT COUNT(*) FROM tblleaverequests WHERE employeeid = @id AND status = 'Approved') AS approved, " & _
+                             "(SELECT COUNT(*) FROM tblleaverequests WHERE employeeid = @id AND status = 'Rejected') AS rejected"
 
-        GetQuery(query, "leavecounts")
+        GetQuery(query, "leavecounts", P("@id", loggedinemployeeid))
 
         If ds.Tables("leavecounts").Rows.Count > 0 Then
             Dim row As DataRow = ds.Tables("leavecounts").Rows(0)

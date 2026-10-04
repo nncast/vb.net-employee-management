@@ -100,10 +100,9 @@ CREATE TABLE tblemployee (
 --   employeeid is the primary key itself — the app never selects a separate
 --   login id, only ever looks rows up by employeeid or username.
 --
---   NOTE: passwords are stored and compared as plain text throughout the app
---   (Conn.vb defines Encrypt/Decrypt helpers, but nothing in the codebase
---   actually calls them). Schema mirrors that as-is; hashing the password
---   properly would need app-code changes too, not just the column type.
+--   password holds a salted PBKDF2-SHA256 hash (PasswordHasher.vb), never the
+--   plain password. A row that still contains a plain password (e.g. set by
+--   hand to reset a forgotten one) works once and is hashed on that login.
 -- ----------------------------------------------------------------------------
 DROP TABLE IF EXISTS tbllogin;
 CREATE TABLE tbllogin (
@@ -230,8 +229,8 @@ SET FOREIGN_KEY_CHECKS = 1;
 --  Seed data — enough to log in and use the app on a fresh install.
 --  Without at least one tbllogin row, LoginForm.vb has no way to authenticate
 --  anyone (there's no self-registration screen anywhere in the app).
---  Login: username "admin", password "admin123" (plain text — see tbllogin
---  note above). Change it from the Employee > Profile screen after first login.
+--  Login: username "admin", password "admin123" (stored hashed). Change it
+--  after the first login: Admin > Employee, edit the admin, type a new password.
 -- ============================================================================
 
 INSERT INTO tbldepartment (deptname) VALUES
@@ -246,4 +245,4 @@ INSERT INTO tblemployee (firstname, lastname, sex, maritalstatus, dob, positioni
   ('System', 'Administrator', 'Male', 'Single', '2000-01-01', 1, 1, 30000.00);
 
 INSERT INTO tbllogin (employeeid, username, password, role) VALUES
-  (LAST_INSERT_ID(), 'admin', 'admin123', 'Admin');
+  (LAST_INSERT_ID(), 'admin', 'PBKDF2$100000$TjvfeaaBVjqea3bTopUO+g==$65eVcC2OEOWx2aor5Ol51WBlmhWi7jOLNOFuilylIeM=', 'Admin');

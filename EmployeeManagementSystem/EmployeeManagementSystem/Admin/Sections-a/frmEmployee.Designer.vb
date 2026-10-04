@@ -69,7 +69,6 @@ Partial Class frmEmployee
         Me.ColumnHeader8 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader9 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader10 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader11 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader12 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ShapeContainer2 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
         Me.RectangleShape2 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
@@ -472,7 +471,7 @@ Partial Class frmEmployee
         'lvemployee
         '
         Me.lvemployee.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.lvemployee.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3, Me.ColumnHeader4, Me.ColumnHeader5, Me.ColumnHeader6, Me.ColumnHeader7, Me.ColumnHeader8, Me.ColumnHeader9, Me.ColumnHeader10, Me.ColumnHeader11, Me.ColumnHeader12})
+        Me.lvemployee.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3, Me.ColumnHeader4, Me.ColumnHeader5, Me.ColumnHeader6, Me.ColumnHeader7, Me.ColumnHeader8, Me.ColumnHeader9, Me.ColumnHeader10, Me.ColumnHeader12})
         Me.lvemployee.FullRowSelect = True
         Me.lvemployee.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
         Me.lvemployee.Location = New System.Drawing.Point(35, 69)
@@ -531,11 +530,6 @@ Partial Class frmEmployee
         '
         Me.ColumnHeader10.Text = "Username"
         Me.ColumnHeader10.Width = 100
-        '
-        'ColumnHeader11
-        '
-        Me.ColumnHeader11.Text = "Password"
-        Me.ColumnHeader11.Width = 100
         '
         'ColumnHeader12
         '
@@ -716,7 +710,6 @@ Partial Class frmEmployee
     Friend WithEvents ColumnHeader8 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ColumnHeader9 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ColumnHeader10 As System.Windows.Forms.ColumnHeader
-    Friend WithEvents ColumnHeader11 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ColumnHeader12 As System.Windows.Forms.ColumnHeader
     Friend WithEvents Label12 As System.Windows.Forms.Label
     Friend WithEvents Label13 As System.Windows.Forms.Label

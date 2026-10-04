@@ -1,7 +1,7 @@
 ﻿Public Class frmAttendance_e
 
     Private Sub frmAttendance_e_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Connect("localhost", "dbemployee", "3306", "root", "")
+        Connect()
 
     End Sub
 
@@ -11,15 +11,15 @@
 
     Public Sub fill()
         Dim search As String = txtsearch.Text.Trim()
-        Dim query As String = "SELECT * FROM tblattendance WHERE employeeid = " & loggedinemployeeid
+        Dim query As String = "SELECT * FROM tblattendance WHERE employeeid = @id"
 
         If search <> "" Then
-            query &= " AND (status LIKE '%" & search & "%' OR date LIKE '%" & search & "%')"
+            query &= " AND (status LIKE @s OR date LIKE @s)"
         End If
 
         query &= " ORDER BY date ASC"
 
-        GetQuery(query, "attendance")
+        GetQuery(query, "attendance", P("@id", loggedinemployeeid), P("@s", "%" & search & "%"))
         lvattendance.Items.Clear()
 
         Dim count As Integer = 1

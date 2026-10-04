@@ -2,7 +2,7 @@
     Private selectedRequestId As Integer = -1
 
     Private Sub frmLeave_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Connect("localhost", "dbemployee", "3306", "root", "")
+        Connect()
 
         loadform()
     End Sub
@@ -22,12 +22,12 @@
                                       "WHERE lr.status = 'Pending'"
 
         If searchLeave <> "" Then
-            pendingQuery &= " AND (e.firstname LIKE '%" & searchLeave & "%' OR e.lastname LIKE '%" & searchLeave & "%' OR lr.reason LIKE '%" & searchLeave & "%')"
+            pendingQuery &= " AND (e.firstname LIKE @s OR e.lastname LIKE @s OR lr.reason LIKE @s)"
         End If
 
         pendingQuery &= " ORDER BY lr.datefrom ASC"
 
-        GetQuery(pendingQuery, "pending")
+        GetQuery(pendingQuery, "pending", P("@s", "%" & searchLeave & "%"))
         lvpendingleave.Items.Clear()
         For Each row As DataRow In ds.Tables("pending").Rows
             Dim item As New ListViewItem(row("id").ToString())
@@ -44,12 +44,12 @@
                                      "WHERE lr.status IN ('Approved', 'Rejected')"
 
         If search <> "" Then
-            historyQuery &= " AND (e.firstname LIKE '%" & search & "%' OR e.lastname LIKE '%" & search & "%' OR lr.reason LIKE '%" & search & "%')"
+            historyQuery &= " AND (e.firstname LIKE @s OR e.lastname LIKE @s OR lr.reason LIKE @s)"
         End If
 
         historyQuery &= " ORDER BY lr.datefrom DESC"
 
-        GetQuery(historyQuery, "history")
+        GetQuery(historyQuery, "history", P("@s", "%" & search & "%"))
         lvleavehistory.Items.Clear()
         For Each row As DataRow In ds.Tables("history").Rows
             Dim item As New ListViewItem(row("id").ToString())
@@ -72,37 +72,61 @@
     End Sub
 
     Private Sub btnapprove_Click(sender As Object, e As EventArgs) Handles btnapprove.Click
-        If selectedRequestId <> -1 Then
-            SetQuery("UPDATE tblleaverequests SET datefrom = '" & dtpdatefrom.Value.ToString("yyyy-MM-dd") &
-                  "', dateto = '" & dtpdateto.Value.ToString("yyyy-MM-dd") &
-                  "', status = 'Approved' WHERE id = " & selectedRequestId)
+        If selectedRequestId = -1 Then Exit Sub
 
-            Dim query As String = "SELECT employeeid, datefrom, dateto FROM tblleaverequests WHERE id = " & selectedRequestId
-            GetQuery(query, "leaveDetails")
+        Dim dateFrom As Date = dtpdatefrom.Value.Date
+        Dim dateTo As Date = dtpdateto.Value.Date
+        If dateTo < dateFrom Then
+            MsgBox("'To' date can't be earlier than the 'From' date.", MsgBoxStyle.Critical, "Date Error")
+            Exit Sub
+        End If
 
-            If ds.Tables("leaveDetails").Rows.Count > 0 Then
-                Dim row As DataRow = ds.Tables("leaveDetails").Rows(0)
-                Dim employeeId As Integer = row("employeeid")
-                Dim dateFrom As Date = row("datefrom")
-                Dim dateTo As Date = row("dateto")
-
-                For day As Integer = 0 To DateDiff(DateInterval.Day, dateFrom, dateTo)
-                    Dim attendanceDate As Date = dateFrom.AddDays(day)
-                    Dim insertAttendanceQuery As String = "INSERT INTO tblattendance (employeeid, date, status, timein, timeout) " & _
-                                                           "VALUES (" & employeeId & ", '" & attendanceDate.ToString("yyyy-MM-dd") & "', 'On Leave', '00:00:00', '00:00:00')"
-                    SetQuery(insertAttendanceQuery)
-                Next
+        Dim marked As Integer = 0
+        Try
+            BeginTransaction()
+            If Execute("UPDATE tblleaverequests SET datefrom = @f, dateto = @t, status = 'Approved' WHERE id = @id AND status = 'Pending'",
+                       P("@f", dateFrom.ToString("yyyy-MM-dd")), P("@t", dateTo.ToString("yyyy-MM-dd")), P("@id", selectedRequestId)) = 0 Then
+                RollbackTransaction()
+                MsgBox("This leave request is no longer pending.", MsgBoxStyle.Exclamation, "Status Updated")
+                clearfields()
+                fill()
+                Exit Sub
             End If
 
-            MsgBox("Leave request approved and attendance updated.", MsgBoxStyle.Information, "Status Updated")
-            clearfields()
-            fill()
-        End If
+            Dim employeeId As Integer = CInt(GetValue("SELECT employeeid FROM tblleaverequests WHERE id = @id", P("@id", selectedRequestId)))
+
+            ' Mark each day On Leave. An Absent day becomes On Leave; days the employee
+            ' actually worked (Present/Late) or already marked On Leave are left alone.
+            For day As Integer = 0 To CInt(DateDiff(DateInterval.Day, dateFrom, dateTo))
+                Dim attendanceDate As String = dateFrom.AddDays(day).ToString("yyyy-MM-dd")
+                Dim current As Object = GetValue("SELECT status FROM tblattendance WHERE employeeid = @e AND date = @d", P("@e", employeeId), P("@d", attendanceDate))
+
+                If current Is Nothing Then
+                    Execute("INSERT INTO tblattendance (employeeid, date, status, timein, timeout) VALUES (@e, @d, 'On Leave', '00:00:00', '00:00:00')",
+                            P("@e", employeeId), P("@d", attendanceDate))
+                    marked += 1
+                ElseIf current.ToString() = "Absent" Then
+                    Execute("UPDATE tblattendance SET status = 'On Leave', timein = '00:00:00', timeout = '00:00:00' WHERE employeeid = @e AND date = @d",
+                            P("@e", employeeId), P("@d", attendanceDate))
+                    marked += 1
+                End If
+            Next
+            CommitTransaction()
+        Catch ex As Exception
+            RollbackTransaction()
+            MsgBox("Could not approve the leave request: " & ex.Message, MsgBoxStyle.Critical, "Error")
+            Exit Sub
+        End Try
+
+        MsgBox("Leave request approved and attendance updated (" & marked & " day(s) marked On Leave).", MsgBoxStyle.Information, "Status Updated")
+        clearfields()
+        fill()
     End Sub
 
     Private Sub btnreject_Click(sender As Object, e As EventArgs) Handles btnreject.Click
-        If selectedRequestId <> -1 Then
-            SetQuery("UPDATE tblleaverequests SET status = 'Rejected' WHERE id = " & selectedRequestId)
+        If selectedRequestId = -1 Then Exit Sub
+
+        If SetQuery("UPDATE tblleaverequests SET status = 'Rejected' WHERE id = @id AND status = 'Pending'", P("@id", selectedRequestId)) Then
             MsgBox("Leave request rejected.", MsgBoxStyle.Information, "Status Updated")
             clearfields()
             fill()
@@ -150,6 +174,6 @@
     Private Sub btncancel_Click(sender As Object, e As EventArgs) Handles btncancel.Click
         clearfields()
         pnlinput.Enabled = False
-        selectedRequestId = Nothing
+        selectedRequestId = -1
     End Sub
 End Class

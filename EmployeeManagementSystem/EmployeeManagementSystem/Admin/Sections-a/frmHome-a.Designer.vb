@@ -404,9 +404,9 @@ Partial Class frmHome
         Me.lvposition.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3})
         Me.lvposition.ForeColor = System.Drawing.Color.FromArgb(CType(CType(250, Byte), Integer), CType(CType(244, Byte), Integer), CType(CType(228, Byte), Integer))
         Me.lvposition.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None
-        Me.lvposition.Location = New System.Drawing.Point(106, 46)
+        Me.lvposition.Location = New System.Drawing.Point(67, 46)
         Me.lvposition.Name = "lvposition"
-        Me.lvposition.Size = New System.Drawing.Size(253, 148)
+        Me.lvposition.Size = New System.Drawing.Size(292, 148)
         Me.lvposition.TabIndex = 1
         Me.lvposition.UseCompatibleStateImageBehavior = False
         Me.lvposition.View = System.Windows.Forms.View.Details
@@ -481,9 +481,9 @@ Partial Class frmHome
         Me.lvdepartment.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader4, Me.ColumnHeader5, Me.ColumnHeader6})
         Me.lvdepartment.ForeColor = System.Drawing.Color.FromArgb(CType(CType(250, Byte), Integer), CType(CType(244, Byte), Integer), CType(CType(228, Byte), Integer))
         Me.lvdepartment.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None
-        Me.lvdepartment.Location = New System.Drawing.Point(106, 46)
+        Me.lvdepartment.Location = New System.Drawing.Point(67, 46)
         Me.lvdepartment.Name = "lvdepartment"
-        Me.lvdepartment.Size = New System.Drawing.Size(253, 148)
+        Me.lvdepartment.Size = New System.Drawing.Size(292, 148)
         Me.lvdepartment.TabIndex = 2
         Me.lvdepartment.UseCompatibleStateImageBehavior = False
         Me.lvdepartment.View = System.Windows.Forms.View.Details

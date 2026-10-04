@@ -1,6 +1,11 @@
 ﻿Public Class LoginForm
     Private Sub LoginForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Connect("localhost", "dbemployee", "3306", "root", "")
+        Connect()
+
+        ' The password is hidden while typing; the eye icon shows it.
+        txtpassword.UseSystemPasswordChar = True
+        piceyeview.Visible = True
+        piceyehide.Visible = False
     End Sub
 
     Public Sub clearfields()
@@ -17,27 +22,29 @@
             Exit Sub
         End If
 
-        GetQuery("SELECT * FROM tbllogin WHERE username = '" & username & "' AND password = '" & password & "'", "tbllogin")
+        GetQuery("SELECT employeeid, password, role FROM tbllogin WHERE username = @u", "tbllogin", P("@u", username))
 
-        If ds.Tables("tbllogin").Rows.Count > 0 Then
+        If ds.Tables("tbllogin").Rows.Count > 0 AndAlso VerifyPassword(password, ds.Tables("tbllogin").Rows(0)("password").ToString()) Then
             Dim row = ds.Tables("tbllogin").Rows(0)
             Dim status As String = row("role").ToString()
-            Dim employeeid As Integer = row("employeeid")
+            Dim employeeid As Integer = CInt(row("employeeid"))
+            UpgradeLegacyPassword(employeeid, password, row("password").ToString())
 
             clearfields()
-            txtpassword.UseSystemPasswordChar = False
 
             If status = "Admin" Then
                 loggedinadminid = employeeid
+                loggedinemployeeid = 0
                 MsgBox("Welcome, Admin!", MsgBoxStyle.Information, "Login Successful")
                 Me.Hide()
                 frmDashboard_a.Show()
                 frmDashboard_a.LoadAdminInfo()
                 frmDashboard_a.switchPanel(frmHome)
-                labelclickedE(frmDashboard_a.lblhome)
+                labelclickedA(frmDashboard_a.lblhome)
                 frmHome.fill()
             ElseIf status = "Employee" Then
                 loggedinemployeeid = employeeid
+                loggedinadminid = 0
                 MsgBox("Welcome, Employee!", MsgBoxStyle.Information, "Login Successful")
                 Me.Hide()
                 frmDashboard_e.Show()

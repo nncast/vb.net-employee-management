@@ -123,6 +123,7 @@ Partial Class frmProfile
         Me.txtnewpass2.Name = "txtnewpass2"
         Me.txtnewpass2.Size = New System.Drawing.Size(496, 34)
         Me.txtnewpass2.TabIndex = 2
+        Me.txtnewpass2.UseSystemPasswordChar = True
         '
         'txtnewpass
         '
@@ -131,6 +132,7 @@ Partial Class frmProfile
         Me.txtnewpass.Name = "txtnewpass"
         Me.txtnewpass.Size = New System.Drawing.Size(496, 34)
         Me.txtnewpass.TabIndex = 1
+        Me.txtnewpass.UseSystemPasswordChar = True
         '
         'txtoldpass
         '
@@ -139,6 +141,7 @@ Partial Class frmProfile
         Me.txtoldpass.Name = "txtoldpass"
         Me.txtoldpass.Size = New System.Drawing.Size(496, 34)
         Me.txtoldpass.TabIndex = 0
+        Me.txtoldpass.UseSystemPasswordChar = True
         '
         'ShapeContainer1
         '

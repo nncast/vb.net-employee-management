@@ -119,6 +119,7 @@ Partial Class frmLeave_e
         '
         Me.txtreason.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtreason.Location = New System.Drawing.Point(691, 41)
+        Me.txtreason.MaxLength = 255
         Me.txtreason.Multiline = True
         Me.txtreason.Name = "txtreason"
         Me.txtreason.Size = New System.Drawing.Size(334, 150)

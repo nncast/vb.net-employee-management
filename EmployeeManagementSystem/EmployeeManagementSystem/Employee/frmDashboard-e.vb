@@ -3,7 +3,7 @@
     Private ReadOnly timer As New Timer()
 
     Private Sub frmDashboard_e_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Connect("localhost", "dbemployee", "3306", "root", "")
+        Connect()
         switchPanel(frmHome_e)
         UpdateDateTime()
 
@@ -66,13 +66,14 @@
         If MsgBox("Are you sure you want to log out?", MsgBoxStyle.Question + MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
             Me.Hide()
             LoginForm.Show()
+            loggedinemployeeid = 0
         Else
             Exit Sub
         End If
     End Sub
 
     Public Sub LoadEmployeeInfo()
-        GetQuery("SELECT e.firstname, e.lastname, p.positiontitle FROM tblemployee e INNER JOIN tblposition p ON e.positionid = p.id WHERE e.id = " & loggedinemployeeid, "tblemployee")
+        GetQuery("SELECT e.firstname, e.lastname, p.positiontitle FROM tblemployee e INNER JOIN tblposition p ON e.positionid = p.id WHERE e.id = @id", "tblemployee", P("@id", loggedinemployeeid))
 
         If ds.Tables("tblemployee").Rows.Count > 0 Then
             Dim row = ds.Tables("tblemployee").Rows(0)
@@ -81,4 +82,10 @@
         End If
     End Sub
     
+
+    ' The login form is only hidden after signing in, so closing this window
+    ' has to end the program; otherwise it keeps running in the background.
+    Private Sub frmDashboard_e_FormClosed(sender As Object, e As FormClosedEventArgs) Handles Me.FormClosed
+        Application.Exit()
+    End Sub
 End Class

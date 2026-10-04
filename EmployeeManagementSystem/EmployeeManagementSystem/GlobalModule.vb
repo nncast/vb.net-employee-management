@@ -28,41 +28,16 @@
         lbl.BackColor = Color.FromArgb(250, 244, 228)
         lbl.ForeColor = Color.FromArgb(27, 3, 29)
     End Sub
+
+    ' Replaces a plain-text password left over from before hashing with its hash.
+    Public Sub UpgradeLegacyPassword(employeeid As Integer, password As String, stored As String)
+        If NeedsRehash(stored) Then
+            SetQuery("UPDATE tbllogin SET password = @p WHERE employeeid = @id", P("@p", HashPassword(password)), P("@id", employeeid))
+        End If
+    End Sub
+
+    ' Number of accounts with the Admin role, optionally ignoring one employee.
+    Public Function AdminCount(Optional exceptEmployeeId As Integer = -1) As Integer
+        Return CInt(GetValue("SELECT COUNT(*) FROM tbllogin WHERE role = 'Admin' AND employeeid <> @id", P("@id", exceptEmployeeId)))
+    End Function
 End Module
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
