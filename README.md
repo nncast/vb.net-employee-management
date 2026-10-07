@@ -1,4 +1,4 @@
-<h1 align="center">EmployeeManagementSystem</h1>
+<h1 align="center">PeopleSphere</h1>
 
 <p align="center">
   <img src="https://img.shields.io/badge/version-0.1.1-8038C5?style=flat-square" alt="version">
@@ -15,7 +15,7 @@
   <a href="https://github.com/nncast/vb.net-employee-management/releases">All releases</a>
 </p>
 
-**EmployeeManagementSystem** is a desktop-based application built with **VB.NET** for managing employee records, attendance, department assignments, and payroll.
+**PeopleSphere** is a desktop-based employee management system built with **VB.NET** for managing employee records, attendance, department assignments, and payroll.
 The system supports role-based access for admins and employees, providing a centralized platform for day-to-day HR operations.
 
 > **Current version: v0.1.1** — security and bug-fix release: hashed passwords and random temporary passwords for new accounts, parameterized queries, payroll and leave fixes, the connection settings in a config file, and a ready-to-run Windows build. See [Releases](https://github.com/nncast/vb.net-employee-management/releases) for the release notes.
@@ -98,4 +98,4 @@ Sign in with `admin` / `admin123`, then change that password: open **Employee**,
 - Louisse Glaze Villarente
 ---
 
-*EmployeeManagementSystem · 2025 · VB.NET · Windows Forms · .NET Framework 4.8.1 · MySQL*
+*PeopleSphere · Employee Management System · 2025 · VB.NET · Windows Forms · .NET Framework 4.8.1 · MySQL*
