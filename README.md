@@ -93,9 +93,8 @@ Sign in with `admin` / `admin123`, then change that password: open **Employee**,
 
 ## Developers
 
-- Janelle Ann Castillo
-- Hazel Sebastian
-- Louisse Glaze Villarente
+See [AUTHORS.md](AUTHORS.md). To contribute, read [CONTRIBUTING.md](CONTRIBUTING.md); to report a vulnerability, see [SECURITY.md](SECURITY.md).
+
 ---
 
 *PeopleSphere · Employee Management System · 2025 · VB.NET · Windows Forms · .NET Framework 4.8.1 · MySQL*
