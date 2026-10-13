@@ -1,7 +1,7 @@
 <h1 align="center">PeopleSphere</h1>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-0.1.1-1B031D?style=flat-square" alt="version">
+  <img src="https://img.shields.io/badge/version-0.1.2-1B031D?style=flat-square" alt="version">
   <img src="https://img.shields.io/badge/status-complete-1B031D?style=flat-square" alt="status">
   <img src="https://img.shields.io/badge/VB.NET-Windows_Forms-512BD4?style=flat-square&logo=dotnet&logoColor=white" alt="VB.NET">
   <img src="https://img.shields.io/badge/.NET_Framework-4.8.1-512BD4?style=flat-square&logo=dotnet&logoColor=white" alt=".NET Framework">
@@ -9,16 +9,16 @@
 </p>
 
 <p align="center">
-  <b>Download v0.1.1:</b>
-  <a href="https://github.com/nncast/vb.net-employee-management/releases/download/v0.1.1/EmployeeManagementSystem-v0.1.1-Windows.zip">Windows (.zip)</a> ·
-  <a href="https://github.com/nncast/vb.net-employee-management/archive/refs/tags/v0.1.1.zip">Source (.zip)</a> |
+  <b>Download v0.1.2:</b>
+  <a href="https://github.com/nncast/vb.net-employee-management/releases/download/v0.1.2/EmployeeManagementSystem-v0.1.2-Windows.zip">Windows (.zip)</a> ·
+  <a href="https://github.com/nncast/vb.net-employee-management/archive/refs/tags/v0.1.2.zip">Source (.zip)</a> |
   <a href="https://github.com/nncast/vb.net-employee-management/releases">All releases</a>
 </p>
 
 **PeopleSphere** is a desktop-based employee management system built with **VB.NET** for managing employee records, attendance, department assignments, and payroll.
 The system supports role-based access for admins and employees, providing a centralized platform for day-to-day HR operations.
 
-> **Current version: v0.1.1** — security and bug-fix release: hashed passwords and random temporary passwords for new accounts, parameterized queries, payroll and leave fixes, the connection settings in a config file, and a ready-to-run Windows build. See [Releases](https://github.com/nncast/vb.net-employee-management/releases) for the release notes.
+> **Current version: v0.1.2** — documentation update; the app is unchanged from v0.1.1, the security and bug-fix release: hashed passwords and random temporary passwords for new accounts, parameterized queries, payroll and leave fixes, the connection settings in a config file, and a ready-to-run Windows build. See [Releases](https://github.com/nncast/vb.net-employee-management/releases) for the release notes.
 
 <p align="center">
   <img width="400" alt="Login form." src="https://github.com/user-attachments/assets/13cdf984-6f63-4d7c-ac41-e82849ad4e6d" />
@@ -67,14 +67,14 @@ The system supports role-based access for admins and employees, providing a cent
 
 **Windows build (no Visual Studio needed)**
 
-1. Download [`EmployeeManagementSystem-v0.1.1-Windows.zip`](https://github.com/nncast/vb.net-employee-management/releases/download/v0.1.1/EmployeeManagementSystem-v0.1.1-Windows.zip) from the [v0.1.1 release](https://github.com/nncast/vb.net-employee-management/releases/tag/v0.1.1) and extract it.
+1. Download [`EmployeeManagementSystem-v0.1.2-Windows.zip`](https://github.com/nncast/vb.net-employee-management/releases/download/v0.1.2/EmployeeManagementSystem-v0.1.2-Windows.zip) from the [v0.1.2 release](https://github.com/nncast/vb.net-employee-management/releases/tag/v0.1.2) and extract it.
 2. Start MySQL (XAMPP, WAMP, or another server) and import `database/dbemployee.sql` from the extracted folder.
 3. If your MySQL server, port, user or password differ from `localhost:3306` / `root` / no password, open `EmployeeManagementSystem.exe.config` in Notepad and edit the `EmployeeDb` connection string.
 4. Run `EmployeeManagementSystem.exe`.
 
 **From source**
 
-1. Clone the repository, or download the [source .zip](https://github.com/nncast/vb.net-employee-management/archive/refs/tags/v0.1.1.zip).
+1. Clone the repository, or download the [source .zip](https://github.com/nncast/vb.net-employee-management/archive/refs/tags/v0.1.2.zip).
    ```bash
    git clone https://github.com/nncast/vb.net-employee-management.git
    ```
