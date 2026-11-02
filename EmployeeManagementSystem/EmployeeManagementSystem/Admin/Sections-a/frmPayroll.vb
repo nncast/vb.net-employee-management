@@ -42,7 +42,9 @@
 
     Public Sub fill()
         Dim search As String = txtsearch.Text.Trim()
-        Dim query As String = "SELECT p.id, p.employeeid, CONCAT(e.firstname, ' ', e.lastname) AS fullname, d.deptname, e.salary, " &
+        ' Salary as it was when paid (net = salary + allowance - tax is what gets saved), not the
+        ' employee's current salary, so old records stay consistent and editing one keeps its pay.
+        Dim query As String = "SELECT p.id, p.employeeid, CONCAT(e.firstname, ' ', e.lastname) AS fullname, d.deptname, (p.netsalary - p.allowance + p.tax) AS salary, " &
                               "p.allowance, p.tax, p.netsalary, p.paymentdate " &
                               "FROM tblpayroll p LEFT JOIN tblemployee e ON p.employeeid = e.id " &
                               "LEFT JOIN tbldepartment d ON e.departmentid = d.id"
