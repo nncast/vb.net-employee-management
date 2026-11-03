@@ -30,7 +30,7 @@
                     If SetQuery("UPDATE tbllogin SET password = @p WHERE employeeid = @id", P("@p", HashPassword(newPass)), P("@id", loggedinemployeeid)) Then
                         clearfields()
 
-                        MsgBox("Password changed successfully!", MsgBoxStyle.Information, "Success")
+                        Toast.Notify("Password changed successfully!")
                     End If
                 Else
                     MsgBox("The new password and confirmation do not match.", MsgBoxStyle.Critical, "Password Mismatch")

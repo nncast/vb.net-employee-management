@@ -178,11 +178,11 @@
         If adding Then
             If Not SetQuery("INSERT INTO tblattendance (employeeid, date, status, timein, timeout) VALUES (@e, @d, @s, @in, @out)", params) Then Exit Sub
             adding = False
-            MsgBox("Attendance added successfully!", MsgBoxStyle.Information)
+            Toast.Notify("Attendance added successfully!")
         Else
             If Not SetQuery("UPDATE tblattendance SET employeeid = @e, date = @d, status = @s, timein = @in, timeout = @out WHERE id = @id", params) Then Exit Sub
             updating = False
-            MsgBox("Attendance updated successfully!", MsgBoxStyle.Information)
+            Toast.Notify("Attendance updated successfully!")
         End If
 
         attid = Nothing

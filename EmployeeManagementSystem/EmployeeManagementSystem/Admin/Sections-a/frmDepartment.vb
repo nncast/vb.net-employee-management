@@ -73,15 +73,13 @@
         End If
 
         If adding Then
-            If MsgBox("Are you sure you want to add a new department?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Confirm") <> MsgBoxResult.Yes Then Exit Sub
             If Not SetQuery("INSERT INTO tbldepartment (deptname) VALUES (@n)", P("@n", deptname)) Then Exit Sub
             adding = False
-            MsgBox("Department added successfully!", MsgBoxStyle.Information, "Success")
+            Toast.Notify("Department added successfully!")
         Else
-            If MsgBox("Are you sure you want to update this department?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Confirm") <> MsgBoxResult.Yes Then Exit Sub
             If Not SetQuery("UPDATE tbldepartment SET deptname = @n WHERE id = @id", P("@n", deptname), P("@id", deptid)) Then Exit Sub
             updating = False
-            MsgBox("Department updated successfully!", MsgBoxStyle.Information, "Success")
+            Toast.Notify("Department updated successfully!")
         End If
 
         deptid = Nothing
@@ -110,7 +108,7 @@
                 deptid = Nothing
                 fill()
                 clearfields()
-                MsgBox("Department deleted successfully!", MsgBoxStyle.Information, "Success")
+                Toast.Notify("Department deleted successfully!")
             End If
         End If
     End Sub
