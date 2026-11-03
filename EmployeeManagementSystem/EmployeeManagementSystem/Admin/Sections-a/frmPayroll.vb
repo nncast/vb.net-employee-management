@@ -115,12 +115,12 @@
             If Not SetQuery("INSERT INTO tblpayroll (employeeid, paymentdate, allowance, tax, netsalary) VALUES (@e, @d, @a, @t, @n)",
                             P("@e", empid), P("@d", paydate), P("@a", allowance), P("@t", tax), P("@n", netsalary)) Then Exit Sub
             adding = False
-            MsgBox("Payroll record added successfully!", MsgBoxStyle.Information)
+            Toast.Notify("Payroll record added successfully!")
         Else
             If Not SetQuery("UPDATE tblpayroll SET employeeid = @e, paymentdate = @d, allowance = @a, tax = @t, netsalary = @n WHERE id = @id",
                             P("@e", empid), P("@d", paydate), P("@a", allowance), P("@t", tax), P("@n", netsalary), P("@id", selectedPayrollID)) Then Exit Sub
             updating = False
-            MsgBox("Payroll record updated successfully!", MsgBoxStyle.Information)
+            Toast.Notify("Payroll record updated successfully!")
         End If
 
         fill()

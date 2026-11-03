@@ -186,8 +186,6 @@
         Dim dob As String = dtbdob.Value.ToString("yyyy-MM-dd")
         Dim changedOn As String = Now.ToString("yyyy-MM-dd")
 
-        Dim question As String = If(adding, "Are you sure you want to add a new employee?", "Are you sure you want to update this employee?")
-        If MsgBox(question, MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Confirm") <> MsgBoxResult.Yes Then Exit Sub
 
         Dim wasAdding As Boolean = adding
         Try
@@ -243,7 +241,7 @@
             MsgBox("Employee added successfully!" & vbCrLf & vbCrLf & "Username: " & username & vbCrLf & "Temporary password: " & password & vbCrLf & vbCrLf &
                    "Give these to the employee and ask them to change the password under Profile.", MsgBoxStyle.Information, "Success")
         Else
-            MsgBox("Employee updated successfully!", MsgBoxStyle.Information, "Success")
+            Toast.Notify("Employee updated successfully!")
         End If
 
         employeeid = Nothing
@@ -275,7 +273,7 @@
                 employeeid = Nothing
                 fill()
                 clearfields()
-                MsgBox("Employee deleted successfully!", MsgBoxStyle.Information, "Success")
+                Toast.Notify("Employee deleted successfully!")
             End If
         End If
     End Sub

@@ -105,11 +105,11 @@
         If adding Then
             If Not SetQuery("INSERT INTO tblposition (positiontitle, departmentid) VALUES (@t, @d)", P("@t", positionTitle), P("@d", departmentId)) Then Exit Sub
             adding = False
-            MsgBox("Position added successfully!", MsgBoxStyle.Information, "Saved")
+            Toast.Notify("Position added successfully!")
         Else
             If Not SetQuery("UPDATE tblposition SET positiontitle = @t, departmentid = @d WHERE id = @id", P("@t", positionTitle), P("@d", departmentId), P("@id", positionid)) Then Exit Sub
             updating = False
-            MsgBox("Position updated successfully!", MsgBoxStyle.Information, "Updated")
+            Toast.Notify("Position updated successfully!")
         End If
 
         positionid = 0
@@ -136,7 +136,7 @@
 
         If SetQuery("DELETE FROM tblposition WHERE id = @id", P("@id", positionid)) Then
             positionid = 0
-            MsgBox("Position deleted successfully.", MsgBoxStyle.Information, "Deleted")
+            Toast.Notify("Position deleted successfully.")
             fill()
             clearFields()
         End If

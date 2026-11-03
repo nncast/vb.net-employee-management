@@ -89,7 +89,7 @@
         If adding Then
             If Not SetQuery("INSERT INTO tblleaverequests (employeeid, datefrom, dateto, reason, status) VALUES (@e, @f, @t, @r, 'Pending')",
                             P("@e", loggedinemployeeid), P("@f", dateFrom.ToString("yyyy-MM-dd")), P("@t", dateTo.ToString("yyyy-MM-dd")), P("@r", reason)) Then Exit Sub
-            MsgBox("Your leave request has been submitted successfully!", MsgBoxStyle.Information, "Leave Request Submitted")
+            Toast.Notify("Your leave request has been submitted successfully!")
         Else
             ' Only the employee's own request, and only while it is still pending.
             Dim changed As Integer
@@ -104,7 +104,7 @@
             If changed = 0 Then
                 MsgBox("This leave request has already been reviewed, so it can no longer be changed.", MsgBoxStyle.Exclamation, "Not Pending")
             Else
-                MsgBox("Leave request updated successfully!", MsgBoxStyle.Information, "Update Successful")
+                Toast.Notify("Leave request updated successfully!")
             End If
         End If
 
@@ -206,7 +206,7 @@
             If deleted = 0 Then
                 MsgBox("This leave request has already been reviewed, so it can't be deleted.", MsgBoxStyle.Exclamation, "Not Pending")
             Else
-                MsgBox("Leave request deleted successfully!", MsgBoxStyle.Information, "Deletion Successful")
+                Toast.Notify("Leave request deleted successfully!")
             End If
         End If
     End Sub
