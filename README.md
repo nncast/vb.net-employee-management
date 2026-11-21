@@ -18,7 +18,7 @@
 **PeopleSphere** is a desktop-based employee management system built with **VB.NET** for managing employee records, attendance, department assignments, and payroll.
 The system supports role-based access for admins and employees, providing a centralized platform for day-to-day HR operations.
 
-> **Current version: v0.2.1** — the program's file properties now show its real version instead of 1.0.0.0. Built on v0.2.0: fewer clicks. Save just saves, with no "Are you sure?" first, and a short notice that fades on its own replaces the "…successfully!" box you had to click away. Deleting, logging out and cancelling unsaved work still ask. A new employee's temporary password still shows in a box until you close it. Built on v0.1.3: payroll keeps the salary it was paid with. Built on v0.1.2: documentation update; the app is unchanged from v0.1.1, the security and bug-fix release: hashed passwords and random temporary passwords for new accounts, parameterized queries, payroll and leave fixes, the connection settings in a config file, and a ready-to-run Windows build. See [Releases](https://github.com/nncast/vb.net-employee-management/releases) for the release notes.
+> **Current version: v0.2.1** — fewer clicks: Save just saves, and a notice that fades on its own replaces the "…successfully!" box. See [Releases](https://github.com/nncast/vb.net-employee-management/releases) for what changed in each version.
 
 <p align="center">
   <img width="400" alt="Login form." src="https://github.com/user-attachments/assets/13cdf984-6f63-4d7c-ac41-e82849ad4e6d" />
